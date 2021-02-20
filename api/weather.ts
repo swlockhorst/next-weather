@@ -5,7 +5,10 @@ import getConfig from 'next/config'
 const { publicRuntimeConfig } = getConfig()
 
 const config = {
-  headers: { 'Access-Control-Allow-Origin': 'https://next-weather.vercel.app' },
+  headers: {
+    'Access-Control-Allow-Origin': 'https://next-weather.vercel.app/',
+    'Content-Type': 'application/json',
+  },
 }
 
 // GET: current weather
