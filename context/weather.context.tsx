@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from 'react'
 import { getCityName } from '../api/cityName'
-import { getCurrent, getForecast } from '../api/weather'
+import { getForecast } from '../api/weather'
 import { CurrentWeather } from '../interfaces/interfaces'
 
 export interface WeatherContext {
@@ -58,9 +58,8 @@ export const WeatherContextProvider = ({ children }) => {
 
   async function getCurrentWeather() {
     try {
-      const currentRes = await getCurrent(geoLoc.latitude, geoLoc.longitude)
       const forecastRes = await getForecast(geoLoc.latitude, geoLoc.longitude)
-      setCurrent(currentRes)
+
       setForecast(forecastRes)
     } catch (error) {
       return error
