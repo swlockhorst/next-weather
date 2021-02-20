@@ -1,6 +1,10 @@
 import styled from '@emotion/styled'
 import { motion } from 'framer-motion'
+import Carousel from 'nuka-carousel'
 import React, { useContext } from 'react'
+import { Controls } from '../components/controls'
+import { Label } from '../components/label'
+import { PrimaryCard } from '../components/primary-card/primaryCard'
 import { theme } from '../constants/theme'
 import { WeatherContext } from '../context/weather.context'
 
@@ -15,7 +19,7 @@ export default function Home() {
   return (
     <main>
       <PageContainer>
-        {/* {theme.backgrounds.map((item, index) => {
+        {theme.backgrounds.map((item, index) => {
           return (
             <Backdrop
               key={index}
@@ -51,14 +55,14 @@ export default function Home() {
                   renderCenterLeftControls={null}
                   renderCenterRightControls={null}
                 >
-                  {weatherContext.forecast.Days.map((day, index) => {
+                  {weatherContext.forecast.daily.map((day, index) => {
                     return <PrimaryCard key={index} index={index} data={day} />
                   })}
                 </Carousel>
               </CarouselContainer>
             )}
           </motion.div>
-        )} */}
+        )}
       </PageContainer>
     </main>
   )

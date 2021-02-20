@@ -5,12 +5,14 @@ import { WeatherContext } from '../../context/weather.context'
 
 export const SecondaryCard = ({ index, active }) => {
   const weatherContext = useContext(WeatherContext)
+
+  console.log(weatherContext)
   return (
     <Container active={active}>
       <img
-        src={`https://via.placeholder.com/30/000/666/&text=${weatherContext.forecast.Days[index].Timeframes[0].wx_desc}`}
+        src={`http://openweathermap.org/img/wn/${weatherContext.forecast.daily[index].weather[0].icon}@2x.png`}
       />
-      <div>{weatherContext.forecast.Days[index].Timeframes[0].temp_f}</div>
+      <div>{weatherContext.forecast.daily[index].temp.max}</div>
     </Container>
   )
 }

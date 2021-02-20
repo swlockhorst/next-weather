@@ -1,22 +1,22 @@
 import styled from '@emotion/styled'
+import { format, fromUnixTime } from 'date-fns'
 import React, { useEffect, useState } from 'react'
-import { weekday } from '../../utils/weekday'
 import { Label } from '../label'
 
 export const PrimaryCard = ({ data, index }) => {
   const [day, setDay] = useState<string>(null)
 
   useEffect(() => {
-    setDay(weekday(data.date))
+    setDay(format(fromUnixTime(data.dt), 'eeee'))
   }, [])
 
   return (
     <Container>
-      <Temperature>{Math.round(data.Timeframes[0].temp_f)}</Temperature>
+      <Temperature>{Math.round(data.temp.max)}</Temperature>
 
       <div>
         <img
-          src={`https://via.placeholder.com/222/000/666/&text=${data.Timeframes[0].wx_desc}`}
+          src={`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`}
         />
       </div>
 
