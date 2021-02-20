@@ -79,7 +79,6 @@ export const WeatherContextProvider = ({ children }) => {
   }, [geoLoc])
 
   useEffect(() => {
-    console.log('wow')
     if (geoLoc && city && forecast) {
       setLoading(false)
     }

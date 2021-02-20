@@ -7,7 +7,11 @@ const { publicRuntimeConfig } = getConfig()
 // GET: current weather
 export const getCurrent = async (lat: number, long: number) => {
   const response = await axios.get(
-    `http://api.weatherunlocked.com/api/current/${lat},${long}?app_id=${publicRuntimeConfig.WEATHER_UNLOCKED_APP_ID}&app_key=${publicRuntimeConfig.WEATHER_UNLOCKED_KEY}`
+    `http${
+      publicRuntimeConfig.ENV === 'DEV' ? '' : 's'
+    }://api.weatherunlocked.com/api/current/${lat},${long}?app_id=${
+      publicRuntimeConfig.WEATHER_UNLOCKED_APP_ID
+    }&app_key=${publicRuntimeConfig.WEATHER_UNLOCKED_KEY}`
   )
   try {
     return response.data
@@ -19,7 +23,11 @@ export const getCurrent = async (lat: number, long: number) => {
 // GET: forecast weather
 export const getForecast = async (lat: number, long: number) => {
   const response = await axios.get(
-    `http://api.weatherunlocked.com/api/forecast/${lat},${long}?app_id=${publicRuntimeConfig.WEATHER_UNLOCKED_APP_ID}&app_key=${publicRuntimeConfig.WEATHER_UNLOCKED_KEY}`
+    `http${
+      publicRuntimeConfig.ENV === 'DEV' ? '' : 's'
+    }://api.weatherunlocked.com/api/forecast/${lat},${long}?app_id=${
+      publicRuntimeConfig.WEATHER_UNLOCKED_APP_ID
+    }&app_key=${publicRuntimeConfig.WEATHER_UNLOCKED_KEY}`
   )
   try {
     return response.data
