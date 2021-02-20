@@ -6,7 +6,7 @@ const { publicRuntimeConfig } = getConfig()
 
 const config = {
   headers: {
-    'Access-Control-Allow-Origin': 'https://next-weather.vercel.app/',
+    'Access-Control-Allow-Origin': 'https://next-weather-fkf4ctnag.vercel.app/',
     'Content-Type': 'application/json',
   },
 }
