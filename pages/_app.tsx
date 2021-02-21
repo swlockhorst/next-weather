@@ -17,6 +17,11 @@ function MyApp({ Component, pageProps }) {
             box-sizing: border-box;
           }
 
+          *,
+          *:focus {
+            outline: none;
+          }
+
           html {
             font-family: Roboto, sans-serif;
           }

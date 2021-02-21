@@ -43,11 +43,13 @@ const Container = styled.div`
   left: 50%;
   transform: translateX(-50%);
   width: 100vw;
-  overflow-x: scroll;
+  max-width: 1024px;
 `
 
 const List = styled.ul`
   display: flex;
+  justify-content: space-evenly;
+  width: 100%;
   margin: 0;
   padding: 20px 0;
 `

@@ -6,7 +6,6 @@ import { WeatherContext } from '../../context/weather.context'
 export const SecondaryCard = ({ index, active }) => {
   const weatherContext = useContext(WeatherContext)
 
-  console.log(weatherContext)
   return (
     <Container active={active}>
       <ImageContainer>
@@ -33,8 +32,8 @@ const ImageContainer = styled.div`
   width: 100%;
 
   img {
-    width: 100%;
-    height: auto;
+    width: 30px;
+    height: 30px;
   }
 `
 

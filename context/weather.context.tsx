@@ -59,6 +59,8 @@ export const WeatherContextProvider = ({ children }) => {
   async function getCurrentWeather() {
     try {
       const forecastRes = await getForecast(geoLoc.latitude, geoLoc.longitude)
+      const trimmed = forecastRes.daily
+
       setForecast(forecastRes)
     } catch (error) {
       return error

@@ -45,8 +45,8 @@ const Temperature = styled.div`
 `
 
 const WeatherIcon = styled.img`
-  width: 100%;
+  width: 100px;
   max-width: 200px;
-  height: auto;
+  height: 100px;
   margin: 0 auto;
 `

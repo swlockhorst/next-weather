@@ -74,13 +74,16 @@ const PageContainer = styled.div`
   width: 100vw;
   padding: 20px 0;
   overflow: hidden;
+  max-width: 1024px;
 `
 
 const LabelContainer = styled.div`
   margin-bottom: 40px;
 `
 
-const CarouselContainer = styled(motion.div)``
+const CarouselContainer = styled(motion.div)`
+  position: relative;
+`
 
 interface BackdropProps {
   index: number
