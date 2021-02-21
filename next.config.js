@@ -1,4 +1,7 @@
+
+
 module.exports = {
+
   serverRuntimeConfig: {
     // Will only be available on the server side
   },
@@ -10,3 +13,4 @@ module.exports = {
   },
   poweredByHeader: false,
 }
+

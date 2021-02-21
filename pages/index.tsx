@@ -55,9 +55,13 @@ export default function Home() {
                   renderCenterLeftControls={null}
                   renderCenterRightControls={null}
                 >
-                  {weatherContext.forecast.daily.map((day, index) => {
-                    return <PrimaryCard key={index} index={index} data={day} />
-                  })}
+                  {weatherContext.forecast.daily.map(
+                    (day: any, index: React.ReactText) => {
+                      return (
+                        <PrimaryCard key={index} index={index} data={day} />
+                      )
+                    }
+                  )}
                 </Carousel>
               </CarouselContainer>
             )}
