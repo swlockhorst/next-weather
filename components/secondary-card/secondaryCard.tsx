@@ -10,7 +10,7 @@ export const SecondaryCard = ({ index, active }) => {
     <Container active={active}>
       <ImageContainer>
         <WeatherIcon
-          src={`http://openweathermap.org/img/wn/${weatherContext.forecast.daily[index].weather[0].icon}@2x.png`}
+          src={`https://openweathermap.org/img/wn/${weatherContext.forecast.daily[index].weather[0].icon}@2x.png`}
         />
       </ImageContainer>
       <div>{Math.round(weatherContext.forecast.daily[index].temp.max)}</div>
