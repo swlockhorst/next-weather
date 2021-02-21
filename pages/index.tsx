@@ -72,7 +72,8 @@ const PageContainer = styled.div`
   position: relative;
   height: 100vh;
   width: 100vw;
-  padding: 100px 0 20px;
+  padding: 20px 0;
+  overflow: hidden;
 `
 
 const LabelContainer = styled.div`

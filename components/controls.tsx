@@ -42,7 +42,8 @@ const Container = styled.div`
   top: 100%;
   left: 50%;
   transform: translateX(-50%);
-  /* width: 100%; */
+  width: 100vw;
+  overflow-x: scroll;
 `
 
 const List = styled.ul`
@@ -50,7 +51,10 @@ const List = styled.ul`
   margin: 0;
   padding: 20px 0;
 `
+
 const Button = styled.button`
   background: none;
   border: none;
+  padding: 0;
+  margin: 0;
 `

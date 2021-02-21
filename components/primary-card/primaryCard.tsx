@@ -12,13 +12,14 @@ export const PrimaryCard = ({ data, index }) => {
 
   return (
     <Container>
-      <Temperature>{Math.round(data.temp.max)}</Temperature>
-
       <div>
-        <img
-          src={`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`}
-        />
+        <Temperature>{Math.round(data.temp.max)}</Temperature>
+        <span>{data.weather[0].main}</span>
       </div>
+
+      <WeatherIcon
+        src={`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`}
+      />
 
       <Label>{index === 0 ? 'Today' : day}</Label>
     </Container>
@@ -35,10 +36,17 @@ const Container = styled.div`
 
 const Temperature = styled.div`
   position: relative;
-  font-size: 88px;
+  font-size: 76px;
 
   &:after {
     content: '°';
     position: absolute;
   }
+`
+
+const WeatherIcon = styled.img`
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  margin: 0 auto;
 `
