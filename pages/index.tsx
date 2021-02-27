@@ -1,5 +1,6 @@
 import styled from '@emotion/styled'
 import { motion } from 'framer-motion'
+import Head from 'next/head'
 import Carousel from 'nuka-carousel'
 import React, { useContext } from 'react'
 import { Controls } from '../components/controls'
@@ -17,58 +18,63 @@ export default function Home() {
   const weatherContext = useContext(WeatherContext)
 
   return (
-    <main>
-      <PageContainer>
-        {theme.backgrounds.map((item, index) => {
-          return (
-            <Backdrop
-              key={index}
-              index={index}
-              activeIndex={weatherContext.activeIndex}
-            />
-          )
-        })}
-        {weatherContext.loading ? (
-          <>Loading</>
-        ) : (
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            exit="hidden"
-            variants={drawerVariants}
-            transition={{ duration: 0.25 }}
-          >
-            <LabelContainer>
-              <Label>
-                {weatherContext.city ? weatherContext.city : 'loading'}
-              </Label>
-            </LabelContainer>
+    <>
+      <Head>
+        <title>{weatherContext.city} Weather</title>
+      </Head>
+      <main>
+        <PageContainer>
+          {theme.backgrounds.map((item, index) => {
+            return (
+              <Backdrop
+                key={index}
+                index={index}
+                activeIndex={weatherContext.activeIndex}
+              />
+            )
+          })}
+          {weatherContext.loading ? (
+            <>Loading</>
+          ) : (
+            <motion.div
+              initial="hidden"
+              animate="visible"
+              exit="hidden"
+              variants={drawerVariants}
+              transition={{ duration: 0.25 }}
+            >
+              <LabelContainer>
+                <Label>
+                  {weatherContext.city ? weatherContext.city : 'loading'}
+                </Label>
+              </LabelContainer>
 
-            {weatherContext.forecast && (
-              <CarouselContainer>
-                <Carousel
-                  afterSlide={(currentSlide) => {
-                    weatherContext.setActiveIndex(currentSlide)
-                  }}
-                  enableKeyboardControls
-                  renderBottomCenterControls={(props) => Controls(props)}
-                  renderCenterLeftControls={null}
-                  renderCenterRightControls={null}
-                >
-                  {weatherContext.forecast.daily.map(
-                    (day: any, index: React.ReactText) => {
-                      return (
-                        <PrimaryCard key={index} index={index} data={day} />
-                      )
-                    }
-                  )}
-                </Carousel>
-              </CarouselContainer>
-            )}
-          </motion.div>
-        )}
-      </PageContainer>
-    </main>
+              {weatherContext.forecast && (
+                <CarouselContainer>
+                  <Carousel
+                    afterSlide={(currentSlide) => {
+                      weatherContext.setActiveIndex(currentSlide)
+                    }}
+                    enableKeyboardControls
+                    renderBottomCenterControls={(props) => Controls(props)}
+                    renderCenterLeftControls={null}
+                    renderCenterRightControls={null}
+                  >
+                    {weatherContext.forecast.daily.map(
+                      (day: any, index: React.ReactText) => {
+                        return (
+                          <PrimaryCard key={index} index={index} data={day} />
+                        )
+                      }
+                    )}
+                  </Carousel>
+                </CarouselContainer>
+              )}
+            </motion.div>
+          )}
+        </PageContainer>
+      </main>
+    </>
   )
 }
 
@@ -107,6 +113,6 @@ const Backdrop = styled.div<BackdropProps>`
   background: ${(props) =>
     props.index
       ? `${theme.backgrounds[props.index].gradient}`
-      : 'linear-gradient(135deg, #1DDDDB, #26EEE9)'};
+      : 'linear-gradient(135deg, #00CAFF)'};
   transition: opacity 500ms ease-in-out;
 `

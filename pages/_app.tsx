@@ -25,7 +25,7 @@ function MyApp({ Component, pageProps }) {
 
           html {
             font-family: Roboto, sans-serif;
-            background: #000;
+            background-color: #05bcff;
           }
         `}
       />
@@ -49,13 +49,13 @@ function MyApp({ Component, pageProps }) {
 
             <link rel="manifest" href="/manifest.json" />
             <link
-              href="/icons/favicon-16x16.png"
+              href="/icons/icon-16x16.png"
               rel="icon"
               type="image/png"
               sizes="16x16"
             />
             <link
-              href="/icons/favicon-32x32.png"
+              href="/icons/icon-32x32.png"
               rel="icon"
               type="image/png"
               sizes="32x32"
